@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    vector<Train> trains;
+    vector<Train> arr;
     
     bool cont = true;
     while (cont)
@@ -26,20 +26,20 @@ int main()
         {
             Train tmp;
             tmp.ReadData();
-            trains.push_back(tmp);
+            arr.push_back(tmp);
         }
         else if (ans == 2)
         {
-            if (trains.empty())
+            if (arr.empty())
             {
                 cout << "Реєстр порожній!" << endl;
             }
             else
             {
                 cout << "№ п.п.\tНомер потяга" << endl;
-                for (int i = 0; i < trains.size(); i++)
+                for (int i = 0; i < arr.size(); i++)
                 {
-                    cout << i+1 << "\t" << trains[i].GetNumber() << endl;
+                    cout << i+1 << "\t" << arr[i].GetNumber() << endl;
                 }
             }
         }
@@ -51,13 +51,13 @@ int main()
             cin >> num;
             
             bool found = false;
-            for (int i = 0; i < trains.size(); i++)
+            for (int i = 0; i < arr.size(); i++)
             {
-                if (trains[i].GetNumber() == num)
+                if (arr[i].GetNumber() == num)
                 {
                     found = true;
-                    trains[i].PrintData();
-                    trains[i].PrintRideTime();
+                    arr[i].PrintData();
+                    arr[i].PrintRideTime();
                     break;
                 }
             }
@@ -72,13 +72,13 @@ int main()
             cin >> num;
             
             bool found = false;
-            vector<Train>::iterator it = trains.begin();
-            while(it != trains.end())
+            vector<Train>::iterator it = arr.begin();
+            while(it != arr.end())
             {
                 if (it->GetNumber() == num)
                 {
                     found = true;
-                    trains.erase(it);
+                    arr.erase(it);
                     break;
                 }
                 it++;
